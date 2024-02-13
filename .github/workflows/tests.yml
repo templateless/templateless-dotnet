@@ -1,10 +1,5 @@
-name: Run Tests
-
-on:
-  pull_request:
-    branches:
-      - main
-
+name: tests
+on: [push, pull_request]
 jobs:
   test:
     runs-on: windows-latest # NOTE: Has to be Windows because the old .NET Framework 4.x (which is one of the target frameworks of the test project) is Windows-only
