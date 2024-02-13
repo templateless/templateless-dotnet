@@ -59,9 +59,9 @@ class Program
                 .Build();
 
             var templatelessClient = new TemplatelessClient("<YOUR_API_KEY>");
-            await templatelessClient.SendEmailAsync(email);
+            var emailIds = await templatelessClient.SendEmailAsync(email);
 
-            Console.WriteLine("Email sent successfully.");
+            Console.WriteLine(string.Join(", ", emailIds));
         }
         catch (TemplatelessException ex)
         {
@@ -78,7 +78,13 @@ class Program
 Note:
 
 1. Get your **free API key** here: <https://app.templateless.com> ✨
-1. There are more C# examples in the [examples](examples) folder
+1. There are more C# examples in the [examples](examples) folder:
+
+    ```bash
+    TEMPLATELESS_API_KEY=<YOUR_API_KEY> \
+        TEMPLATELESS_EMAIL_ADDRESS=<YOUR_EMAIL_ADDRESS> \
+        dotnet run --project ./examples/SimpleExample/SimpleExample.csproj
+    ```
 
 ## 🤝 Contributing
 

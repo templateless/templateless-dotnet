@@ -78,7 +78,13 @@ class Program
 Note:
 
 1. Get your **free API key** here: <https://app.templateless.com> ✨
-1. There are more C# examples in the [examples](examples) folder
+1. There are more C# examples in the [examples](examples) folder:
+
+    ```bash
+    TEMPLATELESS_API_KEY=<YOUR_API_KEY> \
+        TEMPLATELESS_EMAIL_ADDRESS=<YOUR_EMAIL_ADDRESS> \
+        dotnet run --project ./examples/SimpleExample/SimpleExample.csproj
+    ```
 
 ## 🤝 Contributing
 

@@ -19,7 +19,7 @@ namespace Templateless
 
 			_client = new HttpClient
 			{
-				BaseAddress = new Uri("http://localhost:4000")
+				BaseAddress = new Uri("https://api.templateless.com")
 			};
 		}
 

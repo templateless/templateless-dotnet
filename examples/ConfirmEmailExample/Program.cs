@@ -13,6 +13,18 @@ namespace ConfirmEmailExample
         {
             try
             {
+				var apiKey = Environment.GetEnvironmentVariable("TEMPLATELESS_API_KEY");
+				if (string.IsNullOrEmpty(apiKey))
+				{
+					throw new InvalidOperationException("Set TEMPLATELESS_API_KEY to your Templateless API key");
+				}
+
+				var emailAddress = Environment.GetEnvironmentVariable("TEMPLATELESS_EMAIL_ADDRESS");
+				if (string.IsNullOrEmpty(emailAddress))
+				{
+					throw new InvalidOperationException("Set TEMPLATELESS_EMAIL_ADDRESS to your own email address");
+				}
+
                 var header = Header.Builder()
                     .Text("# ExampleApp")
                     .Build();
@@ -33,12 +45,12 @@ namespace ConfirmEmailExample
                     .Build();
 
                 var email = Email.Builder()
-                    .To(new EmailAddress("<YOUR_CUSTOMERS_EMAIL_ADDRESS>"))
+                    .To(new EmailAddress(emailAddress))
                     .Subject("Confirm your email")
                     .Content(content)
                     .Build();
 
-                var templatelessClient = new TemplatelessClient("<YOUR_API_KEY>");
+                var templatelessClient = new TemplatelessClient(apiKey);
                 var emailIds = await templatelessClient.SendEmailAsync(email);
 
                 Console.WriteLine(string.Join(", ", emailIds));
