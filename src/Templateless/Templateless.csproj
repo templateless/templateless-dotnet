@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net8.0</TargetFrameworks>
+		<LangVersion>12.0</LangVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<OutputType>Library</OutputType>
+
+		<PackageId>Templateless</PackageId>
+		<Version>0.1.0</Version>
+		<Description>Ship faster by sending elegant emails using just code</Description>
+		<PackageTags>Templateless;email;templates</PackageTags>
+		<PackageIconUrl></PackageIconUrl>
+		<PackageIcon></PackageIcon>
+		<PackageReleaseNotes>https://github.com/templateless/templateless-dotnet/releases</PackageReleaseNotes>
+		<PackageReadmeFile>nuget-readme.md</PackageReadmeFile>
+		<PackageProjectUrl>https://templateless.com</PackageProjectUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<Authors>Ivan Akimov</Authors>
+		<Company>Templateless</Company>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/templateless/templateless-dotnet</RepositoryUrl>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<NoWarn>CS1591</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- <None Include="..\..\icon.png" Pack="true" PackagePath="" /> -->
+		<None Include="..\..\nuget-readme.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
+		<PackageReference Include="Microsoft.Bcl.HashCode" Version="1.1.1" />
+		<PackageReference Include="PolySharp" Version="1.13.2">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="System.Memory" Version="4.5.5" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
+
+</Project>
