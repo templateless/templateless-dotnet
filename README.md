@@ -59,9 +59,9 @@ class Program
                 .Build();
 
             var templatelessClient = new TemplatelessClient("<YOUR_API_KEY>");
-            await templatelessClient.SendEmailAsync(email);
+            var emailIds = await templatelessClient.SendEmailAsync(email);
 
-            Console.WriteLine("Email sent successfully.");
+            Console.WriteLine(string.Join(", ", emailIds));
         }
         catch (TemplatelessException ex)
         {
