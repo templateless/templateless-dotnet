@@ -11,8 +11,8 @@
 		<Version>0.1.1</Version>
 		<Description>Ship faster by sending elegant emails using just code</Description>
 		<PackageTags>Templateless;email;templates</PackageTags>
-		<PackageIconUrl></PackageIconUrl>
-		<PackageIcon></PackageIcon>
+		<PackageIconUrl>https://raw.githubusercontent.com/templateless/templateless-dotnet/main/icon.png</PackageIconUrl>
+		<PackageIcon>icon.png</PackageIcon>
 		<PackageReleaseNotes>https://github.com/templateless/templateless-dotnet/releases</PackageReleaseNotes>
 		<PackageReadmeFile>nuget-readme.md</PackageReadmeFile>
 		<PackageProjectUrl>https://templateless.com</PackageProjectUrl>
@@ -32,7 +32,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<!-- <None Include="..\..\icon.png" Pack="true" PackagePath="" /> -->
+		<None Include="..\..\icon.png" Pack="true" PackagePath="" />
 		<None Include="..\..\nuget-readme.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 

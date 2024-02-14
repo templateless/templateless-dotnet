@@ -58,8 +58,8 @@ class Program
                 .Content(content)
                 .Build();
 
-            var templatelessClient = new TemplatelessClient("<YOUR_API_KEY>");
-            var emailIds = await templatelessClient.SendEmailAsync(email);
+            var templateless = new TemplatelessClient("<YOUR_API_KEY>");
+            var emailIds = await templateless.SendEmailAsync(email);
 
             Console.WriteLine(string.Join(", ", emailIds));
         }

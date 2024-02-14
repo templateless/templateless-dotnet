@@ -32,8 +32,8 @@ namespace SimpleExample
 					.Content(content)
 					.Build();
 
-				var templatelessClient = new TemplatelessClient(apiKey);
-				var emailIds = await templatelessClient.SendEmailAsync(email);
+				var templateless = new TemplatelessClient(apiKey);
+				var emailIds = await templateless.SendEmailAsync(email);
 
 				Console.WriteLine(string.Join(", ", emailIds));
 			}
