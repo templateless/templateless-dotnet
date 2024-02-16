@@ -13,6 +13,15 @@ namespace Templateless.Components
 		[EnumMember(Value = "EMAIL")]
 		Email,
 
+		[EnumMember(Value = "PHONE")]
+		Phone,
+
+		[EnumMember(Value = "FACEBOOK")]
+		Facebook,
+
+		[EnumMember(Value = "YOUTUBE")]
+		YouTube,
+
 		[EnumMember(Value = "TWITTER")]
 		Twitter,
 
@@ -21,5 +30,29 @@ namespace Templateless.Components
 
 		[EnumMember(Value = "GITHUB")]
 		GitHub,
+
+		[EnumMember(Value = "INSTAGRAM")]
+		Instagram,
+
+		[EnumMember(Value = "LINKEDIN")]
+		LinkedIn,
+
+		[EnumMember(Value = "SLACK")]
+		Slack,
+
+		[EnumMember(Value = "DISCORD")]
+		Discord,
+
+		[EnumMember(Value = "TIKTOK")]
+		TikTok,
+
+		[EnumMember(Value = "SNAPCHAT")]
+		Snapchat,
+
+		[EnumMember(Value = "THREADS")]
+		Threads,
+
+		[EnumMember(Value = "TELEGRAM")]
+		Telegram,
 	}
 }
