@@ -97,8 +97,8 @@ Note:
 
 - Have suggestions or want to give feedback? Here's how to reach us:
 
-    - For feature requests, please [start a discussion](https://github.com/templateless/templateless-rust/discussions)
-    - Found a bug? [Open an issue!](https://github.com/templateless/templateless-rust/issues)
+    - For feature requests, please [start a discussion](https://github.com/templateless/templateless-dotnet/discussions)
+    - Found a bug? [Open an issue!](https://github.com/templateless/templateless-dotnet/issues)
     - We are also on Twitter: [@Templateless](https://twitter.com/templateless)
 
 ## 🍻 License
