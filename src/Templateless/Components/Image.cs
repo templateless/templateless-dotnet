@@ -22,7 +22,7 @@ namespace Templateless.Components
 		[JsonProperty("url")]
 		public string Url { get; private set; }
 
-		public Image(string src, string alt, int width, int height, string url)
+		public Image(string src, string alt = "", int width = 0, int height = 0, string url = "")
 		{
 			Id = ComponentId.Image;
 			Src = src;

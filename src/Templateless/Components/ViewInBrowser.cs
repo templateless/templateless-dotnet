@@ -10,7 +10,7 @@ namespace Templateless.Components
 		[JsonProperty("text")]
 		public string Text { get; private set; }
 
-		public ViewInBrowser(string text)
+		public ViewInBrowser(string text = "")
 		{
 			Id = ComponentId.ViewInBrowser;
 			Text = text;
