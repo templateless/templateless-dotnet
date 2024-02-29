@@ -128,6 +128,22 @@ Text component allow you to insert a paragraph. Each paragraph supports basic ma
   - `# Big Header`
   - `###### Small Header`
 
+- Unordered list:
+
+  ```md
+  - item one
+  - item two
+  - item three
+  ```
+
+- Ordered list:
+
+  ```md
+  1. item one
+  1. item two
+  1. item three
+  ```
+
 ```cs
 Content.Builder()
     .Text("## Thank you for signing up")
@@ -253,6 +269,8 @@ Content.Builder()
 ```
 
 </details>
+
+---
 
 Components can be placed in the header, body and footer of the email. Header and footer styling is usually a bit different from the body (for example the text is smaller).
 

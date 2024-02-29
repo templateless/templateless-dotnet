@@ -1,5 +1,8 @@
 # CHANGELOG
 
+**Unreleased:**
+- `README.md`: markdown supports ordered/unordered lists
+
 **v0.1.4:**
 - `README.md` cleanup (listing of components)
 - `Image` component now requires only `src`; the other params are optional
