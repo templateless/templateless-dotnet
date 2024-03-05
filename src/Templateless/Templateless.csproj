@@ -8,7 +8,7 @@
 		<OutputType>Library</OutputType>
 
 		<PackageId>Templateless</PackageId>
-		<Version>0.1.4</Version>
+		<Version>0.1.5</Version>
 		<Description>Ship faster by sending elegant emails using just code</Description>
 		<PackageTags>Templateless;email;templates</PackageTags>
 		<PackageIconUrl>https://raw.githubusercontent.com/templateless/templateless-dotnet/main/icon.png</PackageIconUrl>

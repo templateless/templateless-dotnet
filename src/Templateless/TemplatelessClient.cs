@@ -55,8 +55,17 @@ namespace Templateless
 			}
 
 			var responseContent = await response.Content.ReadAsStringAsync();
-			var sentEmailIds = JsonConvert.DeserializeObject<EmailResponse>(responseContent)?.Emails;
-			return sentEmailIds ?? new List<string>();
+			var res = JsonConvert.DeserializeObject<EmailResponse>(responseContent);
+
+			if (res.Previews != null)
+			{
+				foreach (var preview in res.Previews)
+				{
+					Console.WriteLine($"Templateless [TEST MODE]: Emailed {preview.Email}, preview: https://tmpl.sh/{preview.Preview}");
+				}
+			}
+
+			return res?.Emails ?? new List<string>();
 		}
 
 		private ErrorType ParseErrorType(HttpStatusCode statusCode)
@@ -73,9 +82,19 @@ namespace Templateless
 		}
 	}
 
+	public class EmailResponsePreview
+	{
+		[JsonProperty("preview")]
+		public string Preview { get; set; }
+		[JsonProperty("email")]
+		public string Email { get; set; }
+	}
+
 	public class EmailResponse
 	{
 		[JsonProperty("emails")]
 		public List<string>? Emails { get; set; }
+		[JsonProperty("previews")]
+		public List<EmailResponsePreview>? Previews { get; set; }
 	}
 }
