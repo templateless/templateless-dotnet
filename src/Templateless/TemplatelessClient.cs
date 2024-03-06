@@ -57,7 +57,7 @@ namespace Templateless
 			var responseContent = await response.Content.ReadAsStringAsync();
 			var res = JsonConvert.DeserializeObject<EmailResponse>(responseContent);
 
-			if (res.Previews != null)
+			if (res?.Previews != null)
 			{
 				foreach (var preview in res.Previews)
 				{
@@ -85,9 +85,9 @@ namespace Templateless
 	public class EmailResponsePreview
 	{
 		[JsonProperty("preview")]
-		public string Preview { get; set; }
+		public string? Preview { get; set; }
 		[JsonProperty("email")]
-		public string Email { get; set; }
+		public string? Email { get; set; }
 	}
 
 	public class EmailResponse
