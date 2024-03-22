@@ -30,5 +30,14 @@ namespace Templateless.Components
 
 		[EnumMember(Value = "VIEW_IN_BROWSER")]
 		ViewInBrowser,
+
+		[EnumMember(Value = "QR_CODE")]
+		QrCode,
+
+		[EnumMember(Value = "SIGNATURE")]
+		Signature,
+
+		[EnumMember(Value = "STORE_BADGES")]
+		StoreBadges,
 	}
 }

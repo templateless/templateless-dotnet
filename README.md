@@ -158,9 +158,9 @@ Text component allow you to insert a paragraph. Each paragraph supports basic ma
 
 ```cs
 Content.Builder()
-    .Text("## Thank you for signing up")
-    .Text("Please **verify your email** by [clicking here](https://example.com/confirm?token=XYZ)")
-    .Build();
+  .Text("## Thank you for signing up")
+  .Text("Please **verify your email** by [clicking here](https://example.com/confirm?token=XYZ)")
+  .Build();
 ```
 
 </details>
@@ -170,9 +170,8 @@ Link component adds an anchor tag. This is the same as a text component with the
 
 ```cs
 Content.Builder()
-    .Link("Confirm Email", "https://example.com/confirm?token=XYZ") // or...
-    .Text("[Confirm Email](https://example.com/confirm?token=XYZ)")
-    .Build();
+  .Link("Confirm Email", "https://example.com/confirm?token=XYZ")
+  .Build();
 ```
 
 </details>
@@ -182,8 +181,8 @@ Button can also be used as a call to action. Button color is set via your dashbo
 
 ```cs
 Content.Builder()
-    .Button("Confirm Email", "https://example.com/confirm?token=XYZ")
-    .Build();
+  .Button("Confirm Email", "https://example.com/confirm?token=XYZ")
+  .Build();
 ```
 
 </details>
@@ -193,14 +192,14 @@ Image component will link to an image within your email. Keep in mind that a lot
 
 ```cs
 Content.Builder()
-    .Image(
-        "https://placekitten.com/300/200",  // where the image is hosted
-        "https://example.com",              // [optional] link url, if you want it to be clickable
-        300,                                // [optional] width
-        200,                                // [optional] height
-        "Alt text"                          // [optional] alternate text
-    )
-    .Build();
+  .Image(
+    "https://placekitten.com/300/200",  // where the image is hosted
+    "https://example.com",              // [optional] link url, if you want it to be clickable
+    300,                                // [optional] width
+    200,                                // [optional] height
+    "Alt text"                          // [optional] alternate text
+  )
+  .Build();
 ```
 
 Only the `src` parameter is required; everything else is optional.
@@ -229,9 +228,9 @@ OTP component is designed for showing temporary passwords and reset codes.
 
 ```cs
 Content.Builder()
-    .Text("Here's your **temporary login code**:")
-    .Otp("XY78-2BT0-YFNB-ALW9")
-    .Build();
+  .Text("Here's your **temporary login code**:")
+  .Otp("XY78-2BT0-YFNB-ALW9")
+  .Build();
 ```
 
 </details>
@@ -243,26 +242,28 @@ These are all the supported platforms:
 
 ```cs
 Content.Builder()
-    .Socials(new List<SocialItem>
-    {
-        new SocialItem(Service.Website, "https://example.com"),
-        new SocialItem(Service.Email, "username@example.com"),
-        new SocialItem(Service.Phone, "123-456-7890"), // `tel:` link
-        new SocialItem(Service.Facebook, "Username"),
-        new SocialItem(Service.YouTube, "ChannelID"),
-        new SocialItem(Service.Twitter, "Username"),
-        new SocialItem(Service.X, "Username"),
-        new SocialItem(Service.GitHub, "Username"),
-        new SocialItem(Service.Instagram, "Username"),
-        new SocialItem(Service.LinkedIn, "Username"),
-        new SocialItem(Service.Slack, "Org"),
-        new SocialItem(Service.Discord, "Username"),
-        new SocialItem(Service.TikTok, "Username"),
-        new SocialItem(Service.Snapchat, "Username"),
-        new SocialItem(Service.Threads, "Username"),
-        new SocialItem(Service.Telegram, "Username")
-    })
-    .Build();
+  .Socials(new List<SocialItem>
+  {
+    new SocialItem(Service.Website, "https://example.com"),
+    new SocialItem(Service.Email, "username@example.com"),
+    new SocialItem(Service.Phone, "123-456-7890"), // `tel:` link
+    new SocialItem(Service.Facebook, "Username"),
+    new SocialItem(Service.YouTube, "ChannelID"),
+    new SocialItem(Service.Twitter, "Username"),
+    new SocialItem(Service.X, "Username"),
+    new SocialItem(Service.GitHub, "Username"),
+    new SocialItem(Service.Instagram, "Username"),
+    new SocialItem(Service.LinkedIn, "Username"),
+    new SocialItem(Service.Slack, "Org"),
+    new SocialItem(Service.Discord, "Username"),
+    new SocialItem(Service.TikTok, "Username"),
+    new SocialItem(Service.Snapchat, "Username"),
+    new SocialItem(Service.Threads, "Username"),
+    new SocialItem(Service.Telegram, "Username"),
+    new SocialItem(Service.Mastodon, "@Username@example.com"),
+    new SocialItem(Service.Rss, "https://example.com/blog")
+  })
+  .Build();
 ```
 
 </details>
@@ -276,9 +277,96 @@ You can optionally provide the text for the link. If none is provided, default i
 
 ```cs
 Content.Builder()
-    .ViewInBrowser("Read Email in Browser")
-    .Build();
+  .ViewInBrowser("Read Email in Browser")
+  .Build();
 ```
+
+</details>
+<details><summary>Store Badges</summary>
+
+Link to your mobile apps via store badges:
+
+```cs
+Content.Builder()
+  .StoreBadges(new List<StoreBadgeItem>
+  {
+    new StoreBadgeItem(StoreBadge.AppStore, "https://apps.apple.com/us/app/example/id1234567890"),
+    new StoreBadgeItem(StoreBadge.GooglePlay, "https://play.google.com/store/apps/details?id=com.example"),
+    new StoreBadgeItem(StoreBadge.MicrosoftStore, "https://apps.microsoft.com/detail/example"),
+  })
+  .Build();
+```
+
+</details>
+<details><summary>QR Code</summary>
+
+You can also generate QR codes on the fly. They will be shown as images inside the email.
+
+Here are all the supported data types:
+
+```cs
+// URL
+Content.Builder()
+  .QrCode("https://example.com")
+  .Build();
+
+// Email
+Content.Builder()
+  .Component(QrCode.Email("user@example.com"))
+  .Build();
+
+// Phone
+Content.Builder()
+  .Component(QrCode.Phone("123-456-7890"))
+  .Build();
+
+// SMS / Text message
+Content.Builder()
+  .Component(QrCode.Sms("123-456-7890"))
+  .Build();
+
+// Geo coordinates
+Content.Builder()
+  .Component(QrCode.Coordinates(37.773972, -122.431297))
+  .Build();
+
+// Crypto address (for now only Bitcoin and Ethereum are supported)
+Content.Builder()
+  .Component(QrCode.CryptocurrencyAddress(Cryptocurrency.Bitcoin, "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa"))
+  .Build();
+
+// You can also encode any binary data
+Content.Builder()
+  .Component(new QrCode(new byte[] { 1, 2, 3 }))
+  .Build();
+```
+
+</details>
+<details><summary>Signature</summary>
+
+Generated signatures can be added to your emails to give a bit of a personal touch. This will embed an image with your custom text using one of several available fonts:
+
+```cs
+// Signature with a default font
+Content.Builder()
+  .Signature("John Smith")
+  .Build();
+
+// Signature with a custom font
+Content.Builder()
+  .Signature("John Smith", SignatureFont.ReenieBeanie)
+  .Build();
+```
+
+These are the available fonts:
+
+- `SignatureFont.ReenieBeanie` [preview →](https://fonts.google.com/specimen/Reenie+Beanie)
+- `SignatureFont.MeowScript` [preview →](https://fonts.google.com/specimen/Meow+Script)
+- `SignatureFont.Caveat` [preview →](https://fonts.google.com/specimen/Caveat)
+- `SignatureFont.Zeyada` [preview →](https://fonts.google.com/specimen/Zeyada)
+- `SignatureFont.Petemoss` [preview →](https://fonts.google.com/specimen/Petemoss)
+
+Signature should not exceed 64 characters. Only alphanumeric characters and most common symbols are allowed.
 
 </details>
 

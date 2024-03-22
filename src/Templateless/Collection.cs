@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Templateless.Components;
 
 namespace Templateless
@@ -23,9 +22,9 @@ namespace Templateless
 			return this;
 		}
 
-		public Collection Image(string src, string url, int? width, int? height, string alt)
+		public Collection Image(string src, string? url = null, int? width = null, int? height = null, string? alt = null)
 		{
-			Components.Add(new Image(src, alt ?? string.Empty, width ?? 0, height ?? 0, url ?? string.Empty));
+			Components.Add(new Image(src, alt, width, height, url));
 			return this;
 		}
 
@@ -53,9 +52,33 @@ namespace Templateless
 			return this;
 		}
 
-		public Collection ViewInBrowser(string text)
+		public Collection ViewInBrowser(string? text = null)
 		{
 			Components.Add(new ViewInBrowser(text));
+			return this;
+		}
+
+		public Collection QrCode(string url)
+		{
+			Components.Add(Templateless.Components.QrCode.Url(url));
+			return this;
+		}
+
+		public Collection StoreBadges(List<StoreBadgeItem> data)
+		{
+			Components.Add(new StoreBadges(data));
+			return this;
+		}
+
+		public Collection Signature(string text, SignatureFont? font = null)
+		{
+			Components.Add(new Signature(text, font));
+			return this;
+		}
+
+		public Collection Component(IComponent component)
+		{
+			Components.Add(component);
 			return this;
 		}
 

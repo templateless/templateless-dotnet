@@ -54,5 +54,11 @@ namespace Templateless.Components
 
 		[EnumMember(Value = "TELEGRAM")]
 		Telegram,
+
+		[EnumMember(Value = "MASTODON")]
+		Mastodon,
+
+		[EnumMember(Value = "RSS")]
+		Rss,
 	}
 }

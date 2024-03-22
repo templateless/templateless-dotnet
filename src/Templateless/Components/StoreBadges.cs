@@ -2,17 +2,17 @@ using Newtonsoft.Json;
 
 namespace Templateless.Components
 {
-	public class Socials : IComponent
+	public class StoreBadges : IComponent
 	{
 		[JsonProperty("id")]
 		public ComponentId Id { get; private set; }
 
 		[JsonProperty("data")]
-		public List<SocialItem> Data { get; private set; }
+		public List<StoreBadgeItem> Data { get; private set; }
 
-		public Socials(List<SocialItem> data)
+		public StoreBadges(List<StoreBadgeItem> data)
 		{
-			Id = ComponentId.Socials;
+			Id = ComponentId.StoreBadges;
 			Data = data;
 		}
 	}

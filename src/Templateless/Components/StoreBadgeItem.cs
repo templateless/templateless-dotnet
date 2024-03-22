@@ -2,17 +2,17 @@ using Newtonsoft.Json;
 
 namespace Templateless.Components
 {
-	public class SocialItem
+	public class StoreBadgeItem
 	{
 		[JsonProperty("key")]
-		public Service Service { get; set; }
+		public StoreBadge Key { get; set; }
 
 		[JsonProperty("value")]
 		public string Value { get; set; }
 
-		public SocialItem(Service service, string value)
+		public StoreBadgeItem(StoreBadge key, string value)
 		{
-			Service = service;
+			Key = key;
 			Value = value;
 		}
 	}

@@ -1,5 +1,3 @@
-using System;
-using System.Threading.Tasks;
 using Templateless;
 
 namespace SimpleExample
@@ -22,20 +20,18 @@ namespace SimpleExample
 					throw new InvalidOperationException("Set TEMPLATELESS_EMAIL_ADDRESS to your own email address");
 				}
 
-				var content = Content.Builder()
-					.Text("Hello world")
-					.Build();
-
 				var email = Email.Builder()
 					.To(new EmailAddress(emailAddress))
 					.Subject("Hello")
-					.Content(content)
+					.Content(
+						Content.Builder()
+							.Text("Hello world")
+							.Build()
+					)
 					.Build();
 
 				var templateless = new TemplatelessClient(apiKey);
-				var emailIds = await templateless.SendEmailAsync(email);
-
-				Console.WriteLine(string.Join(", ", emailIds));
+				await templateless.SendEmailAsync(email);
 			}
 			catch (TemplatelessException ex)
 			{

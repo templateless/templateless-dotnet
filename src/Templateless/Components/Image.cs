@@ -5,24 +5,24 @@ namespace Templateless.Components
 	public class Image : IComponent
 	{
 		[JsonProperty("id")]
-		public ComponentId Id { get; private set; }
+		public ComponentId Id { get; set; }
 
 		[JsonProperty("src")]
-		public string Src { get; private set; }
+		public string Src { get; set; }
 
-		[JsonProperty("alt")]
-		public string Alt { get; private set; }
+		[JsonProperty("alt", NullValueHandling = NullValueHandling.Ignore)]
+		public string? Alt { get; set; }
 
-		[JsonProperty("width")]
-		public int Width { get; private set; }
+		[JsonProperty("width", NullValueHandling = NullValueHandling.Ignore)]
+		public int? Width { get; set; }
 
-		[JsonProperty("height")]
-		public int Height { get; private set; }
+		[JsonProperty("height", NullValueHandling = NullValueHandling.Ignore)]
+		public int? Height { get; set; }
 
-		[JsonProperty("url")]
-		public string Url { get; private set; }
+		[JsonProperty("url", NullValueHandling = NullValueHandling.Ignore)]
+		public string? Url { get; set; }
 
-		public Image(string src, string alt = "", int width = 0, int height = 0, string url = "")
+		public Image(string src, string? alt = null, int? width = null, int? height = null, string? url = null)
 		{
 			Id = ComponentId.Image;
 			Src = src;

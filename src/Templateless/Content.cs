@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Newtonsoft.Json;
 using Templateless.Components;
 using TemplatelessTheme = Templateless.Theme;
@@ -61,7 +59,7 @@ namespace Templateless
 			return this;
 		}
 
-		public Content Image(string src, string url = "", int width = 0, int height = 0, string alt = "")
+		public Content Image(string src, string? url = null, int? width = null, int? height = null, string? alt = null)
 		{
 			Body[0].Add(new Image(src, alt, width, height, url));
 			return this;
@@ -91,9 +89,33 @@ namespace Templateless
 			return this;
 		}
 
-		public Content ViewInBrowser(string text)
+		public Content ViewInBrowser(string? text = null)
 		{
 			Body[0].Add(new ViewInBrowser(text));
+			return this;
+		}
+
+		public Content QrCode(string url)
+		{
+			Body[0].Add(Components.QrCode.Url(url));
+			return this;
+		}
+
+		public Content StoreBadges(List<StoreBadgeItem> data)
+		{
+			Body[0].Add(new StoreBadges(data));
+			return this;
+		}
+
+		public Content Signature(string text, SignatureFont? font = null)
+		{
+			Body[0].Add(new Signature(text, font));
+			return this;
+		}
+
+		public Content Component(IComponent component)
+		{
+			Body[0].Add(component);
 			return this;
 		}
 
